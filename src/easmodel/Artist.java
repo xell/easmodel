@@ -6,6 +6,7 @@ package easmodel;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduleParameters;
+import repast.simphony.random.RandomHelper;
 
 /**
  * @author xell
@@ -18,6 +19,8 @@ public class Artist {
 	public final int LIFE_SPAN;
 	private int age;
 	private ArtistWorld artistWrold = null;
+	
+	private double testAttr = 0.0;
 	
 	public Artist(int id, int lifespan, ArtistWorld artistWorld) {
 		this.ID = id;
@@ -55,7 +58,7 @@ public class Artist {
 			artistWrold.addOneDeadArtist();
 			Utils.plts(this, "died in " + LIFE_SPAN);
 		} else if (age <= LIFE_SPAN) {
-
+			setTestAttr(RandomHelper.nextDouble());
 		} else {
 			
 		}
@@ -82,6 +85,14 @@ public class Artist {
 			blanks += " ";
 		}
 		return "[" + blanks + ID + "]";
+	}
+
+	public double getTestAttr() {
+		return testAttr;
+	}
+
+	public void setTestAttr(double testAttr) {
+		this.testAttr = testAttr;
 	}
 
 }

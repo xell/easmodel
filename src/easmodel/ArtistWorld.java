@@ -4,11 +4,13 @@
 package easmodel;
 
 import repast.simphony.context.DefaultContext;
+import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduleParameters;
 import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
+import repast.simphony.space.continuous.RandomCartesianAdder;
 
 /**
  * The artist world.
@@ -30,7 +32,16 @@ public class ArtistWorld extends DefaultContext<Object> {
 
 	
 	public ArtistWorld() {
-		super("Artist World");
+		super("ArtistWorld");
+		
+		ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null)
+				.createContinuousSpace(
+				"ArtistSpace",
+				this,
+				new RandomCartesianAdder<Object>(),
+				new repast.simphony.space.continuous.WrapAroundBorders(),
+				50, 50);
+
 		
 		// born the artists by generation per interval
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
