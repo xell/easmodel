@@ -2,5 +2,12 @@
 <parameters>
 
 	<parameter name="randomSeed" displayName="Default Random Seed" type="int" defaultValue="__NULL__" />
+	
+	<parameter name="numArtists" displayName="Number of Artists" type="int" 
+			defaultValue="10"
+			isReadOnly="false" 
+			converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+									
+	
 
 </parameters>
