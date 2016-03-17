@@ -4,7 +4,7 @@
   <styles>
     <entry>
       <string>easmodel.Artist</string>
-      <string>easmodel.ArtistStyle2D</string>
+      <string>easmodel.style.ArtistStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
