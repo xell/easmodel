@@ -1,5 +1,6 @@
 <context id="easmodel" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://repast.org/scenario/context">
 	<context id="ArtistWorld">
 		<projection id="ArtistSpace" type="continuous space" />
+		<projection id="ArtistNetwork" type="network" />
 	</context>
 </context>

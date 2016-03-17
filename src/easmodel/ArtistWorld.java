@@ -5,6 +5,7 @@ package easmodel;
 
 import repast.simphony.context.DefaultContext;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
+import repast.simphony.context.space.graph.NetworkBuilder;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduleParameters;
@@ -41,6 +42,14 @@ public class ArtistWorld extends DefaultContext<Object> {
 				new RandomCartesianAdder<Object>(),
 				new repast.simphony.space.continuous.WrapAroundBorders(),
 				50, 50);
+//		NetworkFactoryFinder.createNetworkFactory(null).
+//				createNetwork("ArtistNetwork", this, true);
+
+		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>(
+				"ArtistNetwork", this, true);
+		netBuilder.buildNetwork();
+
+		
 
 		
 		// born the artists by generation per interval

@@ -3,10 +3,13 @@
  */
 package easmodel;
 
+import java.util.Iterator;
+
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduleParameters;
 import repast.simphony.random.RandomHelper;
+import repast.simphony.space.graph.Network;
 
 /**
  * @author xell
@@ -18,7 +21,7 @@ public class Artist {
 	public final double BOD;
 	public final int LIFE_SPAN;
 	private int age;
-	private ArtistWorld artistWrold = null;
+	private ArtistWorld artistWorld = null;
 	
 	private double testAttr = 0.0;
 	
@@ -26,7 +29,7 @@ public class Artist {
 		this.ID = id;
 		this.LIFE_SPAN = lifespan;
 		age = 0;
-		this.artistWrold = artistWorld;
+		this.artistWorld = artistWorld;
 		
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 
@@ -55,10 +58,17 @@ public class Artist {
 	public void step() {
 		age++;
 		if (age == LIFE_SPAN + 1) {
-			artistWrold.addOneDeadArtist();
+			artistWorld.addOneDeadArtist();
 			Utils.plts(this, "died in " + LIFE_SPAN);
 		} else if (age <= LIFE_SPAN) {
 			setTestAttr(RandomHelper.nextDouble());
+			@SuppressWarnings("unchecked")
+			Network<Artist> network = (Network<Artist>)artistWorld.getProjection("ArtistNetwork");
+			Iterator<Artist> allArtists = network.getNodes().iterator();
+			if (allArtists.hasNext()) {
+				network.addEdge(this, allArtists.next());
+			}
+
 		} else {
 			
 		}
