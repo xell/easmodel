@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
 
-	<parameter name="randomSeed" displayName="Default Random Seed" type="int" defaultValue="__NULL__" />
+	<parameter name="randomSeed" displayName="1 Default Random Seed" type="int" defaultValue="__NULL__" />
 	
-	<parameter name="numArtists" displayName="Number of Artists" type="int" 
+	<parameter name="numArtists" displayName="2 Number of Artists" type="int" 
 			defaultValue="10"
+			isReadOnly="false" 
+			converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+									
+	<parameter name="genInterval" displayName="3 Generation Interval" type="int" 
+			defaultValue="0"
+			isReadOnly="false" 
+			converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+									
+	<parameter name="numPerGen" displayName="4 Number of Artists per Generation" type="int" 
+			defaultValue="0"
 			isReadOnly="false" 
 			converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 									
