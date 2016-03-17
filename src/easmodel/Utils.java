@@ -3,6 +3,10 @@
  */
 package easmodel;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Utilities for EASModel.
  * @author xell
@@ -24,6 +28,15 @@ public class Utils {
 	 */
 	public static void plts(Object o, String s) {
 		System.out.println(o.toString() + " " + s);
+	}
+	
+	public static <T> List<T> getListFromIterator(Iterator<T> iter) {
+		List<T> copy = new ArrayList<T>();
+		while (iter.hasNext()) {
+		    copy.add(iter.next());
+		}
+		return copy;
+
 	}
 	
 

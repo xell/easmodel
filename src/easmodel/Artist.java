@@ -4,12 +4,14 @@
 package easmodel;
 
 import java.util.Iterator;
+import java.util.List;
 
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ISchedule;
 import repast.simphony.engine.schedule.ScheduleParameters;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.graph.Network;
+import repast.simphony.util.SimUtilities;
 
 /**
  * @author xell
@@ -62,13 +64,14 @@ public class Artist {
 			Utils.plts(this, "died in " + LIFE_SPAN);
 		} else if (age <= LIFE_SPAN) {
 			setTestAttr(RandomHelper.nextDouble());
-			@SuppressWarnings("unchecked")
-			Network<Artist> network = (Network<Artist>)artistWorld.getProjection("ArtistNetwork");
-			Iterator<Artist> allArtists = network.getNodes().iterator();
-			if (allArtists.hasNext()) {
-				network.addEdge(this, allArtists.next());
+			if (age == 5) {
+				@SuppressWarnings("unchecked")
+				Network<Artist> network = (Network<Artist>)artistWorld.getProjection("ArtistNetwork");
+				Iterator<Artist> artistsIter = network.getNodes().iterator();
+				List<Artist> allArtists = Utils.getListFromIterator(artistsIter);
+				SimUtilities.shuffle(allArtists, RandomHelper.getUniform());
+				network.addEdge(this, allArtists.get(0));
 			}
-
 		} else {
 			
 		}

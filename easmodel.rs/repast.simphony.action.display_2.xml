@@ -4,7 +4,7 @@
   <styles>
     <entry>
       <string>easmodel.Artist</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>easmodel.ArtistStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
@@ -35,7 +35,7 @@
     <frequency>REPEAT</frequency>
     <hashCode>-804043907</hashCode>
   </schedParams>
-  <layoutClassName>repast.simphony.visualization.visualization2D.Random2DLayout</layoutClassName>
+  <layoutClassName>repast.simphony.visualization.visualization2D.layout.CircleLayout2D</layoutClassName>
   <layoutProjection>ArtistNetwork</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
