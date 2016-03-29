@@ -24,6 +24,14 @@
         <methodName>getAge</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
+    <entry>
+      <string>toString</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>toString</id>
+        <className>easmodel.Artist</className>
+        <methodName>toString</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
   </methodDataSources>
   <countSources class="linked-hash-map"/>
   <customNADataSources class="linked-hash-map"/>
