@@ -1,0 +1,9 @@
+model.archive = /Users/xell/Code/abms/abms2.3.1/easmodel/output/complete_model.jar
+batch.params.file = scenario.rs/batch_params.xml
+ssh.key_dir = /Users/xell/.ssh
+poll.frequency = 60.0
+model.output = /Users/xell/Code/abms/abms2.3.1/easmodel/output
+
+vm.arguments = -Xmx512M
+local.0.instances = 2
+local.0.working_directory = /var/folders/gt/sgq0x6w145z2xlbp2pbx59ww0000gn/T/

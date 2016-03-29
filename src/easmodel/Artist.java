@@ -19,11 +19,13 @@ import repast.simphony.util.SimUtilities;
  */
 public class Artist {
 	
+	private ArtistWorld artistWorld = null;
 	public final int ID;
 	public final double BOD;
 	public final int LIFE_SPAN;
 	private int age;
-	private ArtistWorld artistWorld = null;
+	
+	private Utils u = new Utils();
 	
 	private double testAttr = 0.0;
 	
@@ -50,21 +52,21 @@ public class Artist {
 				ScheduleParameters.END);
 		schedule.schedule(end, this, "end");
 		
-		Utils.plts(this, LIFE_SPAN + ":" + BOD);
+		u.debug(this, LIFE_SPAN + ":" + BOD);
 	}
 	
 	public void init() {
-		Utils.plts(this, "init");
+		u.debug(this, "init");
 	}
 	
 	public void step() {
 		age++;
 		if (age == LIFE_SPAN + 1) {
 			artistWorld.addOneDeadArtist();
-			Utils.plts(this, "died in " + LIFE_SPAN);
+			u.debug(this, "died in " + LIFE_SPAN);
 		} else if (age <= LIFE_SPAN) {
 			setTestAttr(RandomHelper.nextDouble());
-			if (age == 5) {
+			if (age % 20 == 0) {
 				@SuppressWarnings("unchecked")
 				Network<Artist> network = (Network<Artist>)artistWorld.getProjection("ArtistNetwork");
 				Iterator<Artist> artistsIter = network.getNodes().iterator();
@@ -78,7 +80,7 @@ public class Artist {
 	}
 	
 	public void end() {
-		Utils.plts(this, "end");
+		u.debug(this, "end");
 	}
 	
 	public int getAge() {

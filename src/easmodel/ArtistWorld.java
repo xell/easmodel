@@ -30,6 +30,8 @@ public class ArtistWorld extends DefaultContext<Object> {
 	private int numDeadArtists = 0;
 	private int artistID = 1;
 	
+	private Utils u = new Utils();
+	
 
 	
 	public ArtistWorld() {
@@ -95,7 +97,7 @@ public class ArtistWorld extends DefaultContext<Object> {
 		if (numDeadArtists < NUM_ARTISTS) {
 			return;
 		}
-		Utils.pl("shutdown in artistworld");
+		u.debug("shutdown in artistworld");
 		RunEnvironment.getInstance().endRun();
 	}
 	
